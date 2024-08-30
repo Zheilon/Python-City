@@ -12,3 +12,10 @@ print(f"2Do Resultado: {b}")
 c = (2 * 3) + (5 * (9 / 3))
 print(f"3ER Resultado: {c}") 
 
+#Ejercicio 4
+d = 7 + 3 * (1 + 5 * (2 * (9 - 7) + 4) + 2)
+print(f"4TO Resultado: {d}")
+
+e = 15/3 * (7 + (68 - 15 * 33 + (math.pow(45, 2) / 5) / 3) / 2) + 19
+print(f"5TO Resultado: {e}")
+
