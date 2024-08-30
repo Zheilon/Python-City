@@ -16,9 +16,11 @@ print(f"3ER Resultado: {c}")
 d = 7 + 3 * (1 + 5 * (2 * (9 - 7) + 4) + 2)
 print(f"4TO Resultado: {d}")
 
+#Ejercicio 5
 e = 15/3 * (7 + (68 - 15 * 33 + (math.pow(45, 2) / 5) / 3) / 2) + 19
 print(f"5TO Resultado: {e}")
 
+#Ejercicio 6
 f = (4 * ((((4 + 8 * 2) / 4 - math.pow(3, 2) + math.sqrt(4)) / 2) * math.sqrt(25)) - 3) + 16
 print(f"6TO Resultado: {f}")
 
