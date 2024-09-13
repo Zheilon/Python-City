@@ -1,4 +1,4 @@
-#suma, resta, multi, divi, cualquiera
+#suma, resta, multi, divi, cualquiera   
 import os
 import math
 os.system('cls')
@@ -32,13 +32,20 @@ while True:
 
     elif opcion == 5:
         squrtT = int(input("Ingresa Digito a Operar con Raíz: "))
-        print(f"Raiz Cuadrada [ {squrtT} ] = {math.sqrt(squrtT)}")
+
+        if squrtT > 0:
+            print(f"Raiz Cuadrada [ {squrtT} ] = {math.sqrt(squrtT)}")
+
+        try:
+            math.sqrt(squrtT)
+        except Exception as ex:
+            print(f"{ex}")
 
     else:
         try:
             one / two
-        except ZeroDivisionError as z:
-            print(f"{z}")
+        except Exception as z:
+            print(f"{z}: El Radicando de una Raiz Cuadrada No puede ser Zero")
         
     print()
 
