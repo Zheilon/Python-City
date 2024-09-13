@@ -8,3 +8,5 @@ elif numero != 10:
 
 else:
     print("Cont")
+
+#Rangos de edades y categorias 
