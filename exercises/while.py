@@ -14,38 +14,41 @@ while True:
     opcion = int(input("Digite la opción: "))
     print()
 
-    one = float(input("Ingrese Primer Dígito: "))
-    two = float(input("Ingrese Segundo Dígito: "))
-    print()
+    try:
+        if opcion == 1:
+            one = float(input("Ingrese Primer Dígito: "))
+            two = float(input("Ingrese Segundo Dígito: "))
+            print(f"Suma [ {one} + {two} ] = {one + two}")
 
-    if opcion == 1:
-        print(f"Suma [ {one} + {two} ] = {one + two}")
+        elif opcion == 2:
+            one = float(input("Ingrese Primer Dígito: "))
+            two = float(input("Ingrese Segundo Dígito: "))
+            print(f"Resta [ {one} - {two} ] = {one - two}")
 
-    elif opcion == 2:
-        print(f"Resta [ {one} - {two} ] = {one - two}")
+        elif opcion == 3:
+            one = float(input("Ingrese Primer Dígito: "))
+            two = float(input("Ingrese Segundo Dígito: "))
+            print(f"Multiplicación [ {one} * {two} ] = {one * two}")
 
-    elif opcion == 3:
-        print(f"Multiplicación [ {one} * {two} ] = {one * two}")
+        elif opcion == 4:
+            one = float(input("Ingrese Primer Dígito: "))
+            two = float(input("Ingrese Segundo Dígito: "))
+            print(f"División [ {one} / {two} ] = {one  / two}")
+            print()
 
-    elif opcion == 4 and two != 0:
-        print(f"División [ {one} / {two} ] = {one  / two}")
+        elif opcion == 5:
+            squrtT = int(input("Ingresa Digito a Operar con Raíz: "))
 
-    elif opcion == 5:
-        squrtT = int(input("Ingresa Digito a Operar con Raíz: "))
+            if squrtT > 0:
+                print(f"Raiz Cuadrada [ {squrtT} ] = {math.sqrt(squrtT)}")
 
-        if squrtT > 0:
-            print(f"Raiz Cuadrada [ {squrtT} ] = {math.sqrt(squrtT)}")
+            try:
+                math.sqrt(squrtT)
+            except Exception as ex:
+                print(f"{ex}: El radicando no puede ser negativo!")
 
-        try:
-            math.sqrt(squrtT)
-        except Exception as ex:
-            print(f"{ex}")
-
-    else:
-        try:
-            one / two
-        except Exception as z:
-            print(f"{z}: El Radicando de una Raiz Cuadrada No puede ser Zero")
+    except Exception as z:
+        print(f"{z}")
         
     print()
 
