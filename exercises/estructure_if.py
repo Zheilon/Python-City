@@ -5,3 +5,6 @@ if numero == 10:
 
 elif numero != 10:
     print(f"Número: {numero}")
+
+else:
+    print("Cont")
