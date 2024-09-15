@@ -44,10 +44,11 @@ while True:
             print("------------*-< Raiz Cuadrada >-*------------")
             squrtT = int(input("Ingresa Digito a Operar con Raíz: "))
 
+            if squrtT > 0:
+                print(f"Raiz Cuadrada [ {squrtT} ] = {math.sqrt(squrtT)}")
+              
             try: 
-                if squrtT > 0:
-                    print(f"Raiz Cuadrada [ {squrtT} ] = {math.sqrt(squrtT)}")
-
+                math.sqrt(squrtT)
             except Exception as ex:
                 print(f"{ex}: El radicando no puede ser Negativo!")
 
