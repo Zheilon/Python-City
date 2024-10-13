@@ -1,14 +1,25 @@
 import os
-os.system("cls")
+os.system('cls')
 
-x = int(input("Ingresa Número de [ Filas ]: "))
-y = int(input("Ingresa Número de [ Columnas ]: "))
+creatrix = False
+
 
 #!Problema Pricipal: Listas con mismo ID!
 #*Solución: Crear objetos con ID's distintos!
 
-initMatrix = [["w" for _ in range(y)] for _ in range(x)]
+initMatrix = []
 
+def createMatrix():
+
+    x = int(input("   Ingresa Número de [ Filas ]: "))
+    y = int(input("   Ingresa Número de [ Columnas ]: "))
+    print()
+
+    for z in range(x):
+        intro = []
+        for x in range(y):
+            intro.append("w")
+        initMatrix.append(intro)
 
 def logic():
 
@@ -16,18 +27,10 @@ def logic():
         for lamborguini in range(len(initMatrix[0])):
 
             if audi % 2 == 0:
-                if lamborguini % 2 == 0: 
-                    initMatrix[audi][lamborguini] = "0"
+                initMatrix[audi][lamborguini] = "0" if lamborguini % 2 == 0 else "1"
 
-                elif lamborguini % 2 == 1:
-                    initMatrix[audi][lamborguini] = "1"
-
-            if audi % 2 == 1:
-                if lamborguini % 2 == 0:
-                    initMatrix[audi][lamborguini] = "1"
-                
-                elif lamborguini % 2 == 1:
-                    initMatrix[audi][lamborguini] = "0"  
+            else:
+                initMatrix[audi][lamborguini] = "1" if lamborguini % 2 == 0 else "0"
 logic()   
 
 
@@ -52,10 +55,11 @@ def show():
 show()
 
 
-print("\nBuscar Posición Matricial!")
+def positicionMatrix(): 
 
-while True:
-    
+    print("\nBuscar Posición Matricial!")
+
+        
     x = int(input("\nIngresa Posición [FILA]: "))
     y = int(input("Ingresa Posición [COLUMNA]: "))
 
@@ -63,11 +67,8 @@ while True:
         for camaro in range(len(initMatrix)):
             for astonMartin in range(len(initMatrix[0])):
 
-                if camaro == (x - 1) and astonMartin == (y - 1):
-                    initMatrix[camaro][astonMartin] = initMatrix[camaro][astonMartin]
-                
-                else:
-                    initMatrix[camaro][astonMartin] = "-"
+                value = initMatrix[camaro][astonMartin]
+                initMatrix[camaro][astonMartin] = value if camaro == (x - 1) and astonMartin == (y - 1) else "-"
         show()
         print(f"[{x}, {y}]")   
     
@@ -75,3 +76,44 @@ while True:
         print("\nIngresa Rangos Permitidos!")
 
     logic()
+
+def triquiGame():
+
+    pass
+
+        
+
+
+print("-- Eventos con la Matriz --\n")
+while True:
+
+    if creatrix:
+        print("1). Juego Triqui\n2). Consulatar Posición Matricial\n3). Mostrar Matriz\n4). Salir")
+        selection = int(input("Elige Opción: "))
+        print()
+
+        if selection == 1:
+            #! TRIQUI GAME
+            print("Juego Triqui! - Persona vs Computadora.\n")
+            pass
+
+        elif selection == 2:
+            positicionMatrix()
+            show()
+            print()
+
+        elif selection == 3:
+            show()
+            print()
+        
+        elif selection == 4:
+            break
+
+    else:
+        print(" -- Crear Matriz --")
+
+        createMatrix()
+        logic()
+        creatrix = True
+
+print("Saliendo...")
