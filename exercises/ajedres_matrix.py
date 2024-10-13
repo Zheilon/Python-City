@@ -84,23 +84,72 @@ def createTriqui():
     for z in range(3):
         intro = []
         for x in range(3):
-            intro.append("-")
+            intro.append(" ")
         triquiMatrix.append(intro)
 
 
-def triquiLogicPerson():
+def triquiLogicPerson(matrix):
 
-    c = int(input("Option!"))
+    b = True
+    found = False
+
+    while b:
+
+        row = int(input("Ingresa la Posición [FILA]: "))
+        column = int(input("Ingresa la posición [COLUMNA]: "))
+
+        for audi in range(len(matrix)):
+            for toyota in range(len(matrix[0])):
+
+                if row <= len(matrix) and column <= len(matrix[0]):
+
+                    if audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] == " ":
+                        matrix[audi][toyota] = "o"
+                        b = False
+
+                    elif audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] != " ":
+                        print("\nEspacio Ocupado")
+                        show(triquiMatrix)
+
+                elif row >= len(matrix) or column >= len(matrix[0]):
+                        print("\nRangos no Permitidos!\n")
+                        found = True
+                        break
+            if found:
+                break
+
+    found = False
     show(triquiMatrix)
 
 
-def triquiLogicPc():
+def triquiLogicPc(matrix):
+
+    found = False
+    b = True
+    while b:
+
+        valueRow = rd.randint(1, 3)
+        valueColumn = rd.randint(1, 3)
+
+        for musthang in range(len(matrix)):
+            for aventador in range(len(matrix[0])):
+                
+                if musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] == " ":
+                    matrix[musthang][aventador] = "x"
+                    b = False
+
+                elif musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] != " ":
+                    found = True
+                    break
+
+            if found:
+                break
+
+    found = False
     show(triquiMatrix)
 
 
-def turn(bool: bool):
-
-    increase = 0
+def turn(bool: bool, increase: int):
 
     while True:
         increase += 1
@@ -108,19 +157,21 @@ def turn(bool: bool):
         if bool:
             print(f"\nTurno [ {increase} ] Persona!")
         
-            triquiLogicPerson()
+            triquiLogicPerson(triquiMatrix)
 
             bool = False
 
         else:
             print(f"\nTurno [ {increase} ] Computadora!")
 
-            triquiLogicPc()
+            triquiLogicPc(triquiMatrix)
             
             bool = True
 
 
 def triquiGame(bool: bool):
+
+    increase = 1
 
     print("Sorteo de Turno Inicial: ")
     print("Cara -> 1 / Cruz -> 0")
@@ -134,22 +185,18 @@ def triquiGame(bool: bool):
 
     if numberS == person and bool:
 
-        print("Comienza Persona!")
+        print(f"Comienza Persona! Turno [ {increase} ]")
 
-        triquiLogicPerson()
+        triquiLogicPerson(triquiMatrix)
 
-        bool = False
-
-        turn(changer)
+        turn(bool=False, increase=increase)
 
     else:
-        print("Comienza Computadora!")
+        print(f"Comienza Computadora! Turno [ {increase} ]")
 
-        triquiLogicPc()
+        triquiLogicPc(triquiMatrix)
 
-        bool = True
-
-        turn(changer)
+        turn(bool=True, increase=increase)
             
 
         
