@@ -4,6 +4,8 @@ os.system('cls')
 
 creatrix = False
 changer = True
+PC_WIN = "pc"
+PERSON_WIN = "person"
 
 #!Problema Pricipal: Listas con mismo ID!
 #*Solución: Crear objetos con ID's distintos!
@@ -106,7 +108,7 @@ def triquiLogicPerson(matrix):
                     if audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] == " ":
                         matrix[audi][toyota] = "o"
                         b = False
-
+                        
                     elif audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] != " ":
                         print("\nEspacio Ocupado")
                         show(triquiMatrix)
@@ -115,6 +117,7 @@ def triquiLogicPerson(matrix):
                         print("\nRangos no Permitidos!\n")
                         found = True
                         break
+                
             if found:
                 break
 
@@ -124,7 +127,6 @@ def triquiLogicPerson(matrix):
 
 def triquiLogicPc(matrix):
 
-    found = False
     b = True
     while b:
 
@@ -137,36 +139,441 @@ def triquiLogicPc(matrix):
                 if musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] == " ":
                     matrix[musthang][aventador] = "x"
                     b = False
-
-                elif musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] != " ":
-                    found = True
                     break
 
-            if found:
-                break
+                elif musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] != " ":
+                    break
 
-    found = False
     show(triquiMatrix)
+
+
+#*---------------------| PERSON STRATEGIES |---------------------*#
+
+def strategy_One_Person():
+
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 1 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 2 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+def strategy_Two_Person():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 2 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+def strategy_Three_Person():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 1 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 2 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+def strategy_Four_Person():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 0 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 0 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+def strategy_Five_Person():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 1 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 1 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+def strategy_Six_Person():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 2 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 2 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 2 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+def strategy_Seven_Person():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 2 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+def strategy_Eight_Person():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 2 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+            elif mazda == 2 and caiman == 0 and triquiMatrix[mazda][caiman] == "o":
+                win += 1
+
+    return win
+
+
+#*---------------------| PC STRATEGIES |---------------------*#
+
+def strategy_One_Pc():
+
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 1 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 2 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+def strategy_Two_Pc():
+
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 2 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+def strategy_Three_Pc():
+
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 1 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 2 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+def strategy_Four_Pc():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 0 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 0 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+def strategy_Five_Pc():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 1 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 1 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+def strategy_Six_Pc():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 2 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 2 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 2 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+def strategy_Seven_Pc():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 2 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+def strategy_Eight_Pc():
+    
+    win = 0
+
+    for mazda in range(len(triquiMatrix)):
+        for caiman in range(len(triquiMatrix[0])):
+
+            if mazda == 0 and caiman == 2 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 1 and caiman == 1 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+            elif mazda == 2 and caiman == 0 and triquiMatrix[mazda][caiman] == "x":
+                win += 1
+
+    return win
+
+#*---------------------| PC ATTACK |---------------------*#
+
+
+def confirmCount_Number():
+
+    if strategy_One_Person() == 3:
+        return 3
+    
+    elif strategy_One_Pc() == 3:
+        return 3
+    
+    elif strategy_Two_Person() == 3:
+        return 3
+    
+    elif strategy_Two_Pc() == 3:
+        return 3
+    
+    elif strategy_Three_Person() == 3:
+        return 3
+    
+    elif strategy_Three_Pc() == 3:
+        return 3
+    
+    elif strategy_Four_Person() == 3:
+        return 3
+    
+    elif strategy_Four_Pc() == 3:
+        return 3
+    
+    elif strategy_Five_Person() == 3:
+        return 3
+    
+    elif strategy_Five_Pc() == 3:
+        return 3
+    
+    elif strategy_Six_Person() == 3:
+        return 3
+    
+    elif strategy_Six_Pc() == 3:
+        return 3
+    
+    elif strategy_Seven_Person() == 3:
+        return 3
+    
+    elif strategy_Seven_Pc() == 3:
+        return 3
+    
+    elif strategy_Eight_Person() == 3:
+        return 3
+    
+    elif strategy_Eight_Pc() == 3:
+        return 3
+    
+
+def confirmCount_Text():
+
+    if strategy_One_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_One_Pc() == 3:
+        return PC_WIN
+    
+    elif strategy_Two_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_Two_Pc() == 3:
+        return PC_WIN
+    
+    elif strategy_Three_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_Three_Pc() == 3:
+        return PC_WIN
+    
+    elif strategy_Four_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_Four_Pc() == 3:
+        return PC_WIN
+    
+    elif strategy_Five_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_Five_Pc() == 3:
+        return PC_WIN
+    
+    elif strategy_Six_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_Six_Pc() == 3:
+        return PC_WIN
+    
+    elif strategy_Seven_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_Seven_Pc() == 3:
+        return PC_WIN
+    
+    elif strategy_Eight_Person() == 3:
+        return PERSON_WIN
+    
+    elif strategy_Eight_Pc() == 3:
+        return PC_WIN
+    
 
 
 def turn(bool: bool, increase: int):
 
+    b = True
     while True:
+
         increase += 1
 
-        if bool:
+        win = confirmCount_Number()
+
+        if bool and win != 3:
+
             print(f"\nTurno [ {increase} ] Persona!")
-        
+
             triquiLogicPerson(triquiMatrix)
 
             bool = False
 
-        else:
+        elif win != 3:
+
             print(f"\nTurno [ {increase} ] Computadora!")
 
             triquiLogicPc(triquiMatrix)
             
             bool = True
+
+        if win == 3:
+            break 
+
 
 
 def triquiGame(bool: bool):
@@ -191,12 +598,16 @@ def triquiGame(bool: bool):
 
         turn(bool=False, increase=increase)
 
+
     else:
         print(f"Comienza Computadora! Turno [ {increase} ]")
 
         triquiLogicPc(triquiMatrix)
 
         turn(bool=True, increase=increase)
+
+
+    print('\n¡Gana Persona!' if confirmCount_Text() == 'person' else '\n¡Gana Pc!')
             
 
         
@@ -205,36 +616,41 @@ while True:
 
     if creatrix == False:
 
-        print("1). Juego Triqui\n2). Crear Matriz\n3). Consulatar Posición Matricial\n4). Mostrar Matriz\n5). Salir")
+        print("\n1). Juego Triqui\n2). Crear Matriz\n3). Consulatar Posición Matricial\n4). Mostrar Matriz\n5). Salir")
         selection = int(input("Elige Opción: "))
         print()
 
         if selection == 1:
+
             os.system('cls')
             print("Juego Triqui! - Persona vs Computadora.\n")
             triquiGame(changer)
 
         elif selection == 2:
+
             print(" -- Crear Matriz --")
             createMatrix()
             logic()
             creatrix = True
 
         elif selection == 3:
+
             positicionMatrix()
             show(initMatrix)
             print()
 
         elif selection == 4:
+
             show(initMatrix)
             print()
         
         elif selection == 5:
+
             break
 
     else:
 
-        print("1). Juego Triqui\n2). Consulatar Posición Matricial\n3). Mostrar Matriz\n4). Salir")
+        print("\n1). Juego Triqui\n2). Consulatar Posición Matricial\n3). Mostrar Matriz\n4). Salir")
         selection = int(input("Elige Opción: "))
         print()
 
