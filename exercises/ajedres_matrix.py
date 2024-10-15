@@ -4,6 +4,7 @@ os.system('cls')
 
 creatrix = False
 changer = True
+attack = True
 PC_WIN = "pc"
 PERSON_WIN = "person"
 
@@ -85,9 +86,11 @@ def createTriqui():
 
     for z in range(3):
         intro = []
+
         for x in range(3):
             intro.append(" ")
         triquiMatrix.append(intro)
+
 
 
 def triquiLogicPerson(matrix):
@@ -97,52 +100,319 @@ def triquiLogicPerson(matrix):
 
     while b:
 
-        row = int(input("Ingresa la Posición [FILA]: "))
-        column = int(input("Ingresa la posición [COLUMNA]: "))
+        try:
 
-        for audi in range(len(matrix)):
-            for toyota in range(len(matrix[0])):
+            row = int(input("Ingresa la Posición [FILA]: "))
+            column = int(input("Ingresa la posición [COLUMNA]: "))
 
-                if row <= len(matrix) and column <= len(matrix[0]):
+            for audi in range(len(matrix)):
+                for toyota in range(len(matrix[0])):
 
-                    if audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] == " ":
-                        matrix[audi][toyota] = "o"
-                        b = False
-                        
-                    elif audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] != " ":
-                        print("\nEspacio Ocupado")
-                        show(triquiMatrix)
+                    if row <= len(matrix) and column <= len(matrix[0]):
 
-                elif row >= len(matrix) or column >= len(matrix[0]):
-                        print("\nRangos no Permitidos!\n")
-                        found = True
-                        break
-                
-            if found:
-                break
+                        if audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] == " ":
+                            matrix[audi][toyota] = "o"
+                            b = False
+                            
+                        elif audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] != " ":
+                            print("\nEspacio Ocupado")
+                            show(triquiMatrix)
 
+                    elif row >= len(matrix) or column >= len(matrix[0]):
+                            print("\nRangos no Permitidos!\n")
+                            found = True
+                            break
+                    
+                if found:
+                    break
+
+        except ValueError:
+            print(f"\nNose Permiten Valores Vacios o Caracteres Diferentes!\n")
+    
     found = False
     show(triquiMatrix)
 
 
+#*---------------------| PC ATTACK |---------------------*#
+
+def strategy_Pc_Attack_One(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 0 and m == 0 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 2 and m == 0 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 1 and m == 0 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
+def strategy_Pc_Attack_Two(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 0 and m == 1 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 2 and m == 1 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 1 and m == 1 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
+def strategy_Pc_Attack_Three(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 0 and m == 2 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 2 and m == 2 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 1 and m == 2 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
+def strategy_Pc_Attack_Four(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 2 and m == 0 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 2 and m == 2 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 2 and m == 1 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
+def strategy_Pc_Attack_Five(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 1 and m == 0 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 1 and m == 2 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 1 and m == 1 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
+def strategy_Pc_Attack_Six(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 0 and m == 0 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 0 and m == 2 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 0 and m == 1 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+     
+
+def strategy_Pc_Attack_Seven(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 0 and m == 0 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 1 and m == 1 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 2 and m == 2 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
+def strategy_Pc_Attack_Eight(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 0 and m == 2 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 1 and m == 1 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 2 and m == 0 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
+def strategy_Pc_Attack_Nine(matrix):
+
+    global attack
+
+    validateOne = False
+    validateTwo = False
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+
+            if z == 2 and m == 0 and matrix[z][m] == "o":
+                validateOne = True
+
+            elif z == 1 and m == 1 and matrix[z][m] == "o":
+                validateTwo = True
+
+    for z in range(len(matrix)):
+        for m in range(len(matrix[0])):
+            
+            if z == 0 and m == 2 and matrix[z][m] == " " and validateOne and validateTwo:
+                matrix[z][m] = "x"
+                attack = False
+                validateOne = False
+                validateTwo = False
+
+
 def triquiLogicPc(matrix):
+
+    global attack
+
+    strategy_Pc_Attack_One(matrix)
+
+    strategy_Pc_Attack_Two(matrix)
+
+    strategy_Pc_Attack_Three(matrix)
+
+    strategy_Pc_Attack_Four(matrix)
+
+    strategy_Pc_Attack_Five(matrix)
+
+    strategy_Pc_Attack_Six(matrix)
+
+    strategy_Pc_Attack_Seven(matrix) #! Conflict
+
+    strategy_Pc_Attack_Eight(matrix) #! Conflict
+
+    strategy_Pc_Attack_Nine(matrix) #! Conflict
 
     b = True
     while b:
 
-        valueRow = rd.randint(1, 3)
-        valueColumn = rd.randint(1, 3)
+        if attack:
 
-        for musthang in range(len(matrix)):
-            for aventador in range(len(matrix[0])):
-                
-                if musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] == " ":
-                    matrix[musthang][aventador] = "x"
-                    b = False
-                    break
+            valueRow = rd.randint(1, 3)
+            valueColumn = rd.randint(1, 3)
 
-                elif musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] != " ":
-                    break
+            for musthang in range(len(matrix)):
+                for aventador in range(len(matrix[0])):
+                    
+                    if musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] == " ":
+                        matrix[musthang][aventador] = "x"
+                        b = False
+                        break
+
+                    elif musthang == valueRow - 1 and aventador == valueColumn - 1 and matrix[musthang][aventador] != " ":
+                        break
+
+        else:
+            attack = True
+            break
 
     show(triquiMatrix)
 
@@ -440,8 +710,6 @@ def strategy_Eight_Pc():
 
     return win
 
-#*---------------------| PC ATTACK |---------------------*#
-
 
 def confirmCount_Number():
 
@@ -492,6 +760,18 @@ def confirmCount_Number():
     
     elif strategy_Eight_Pc() == 3:
         return 3
+    
+    else:
+        return 0
+    
+    listStrategies = [strategy_One_Person, strategy_One_Pc, 
+                      strategy_Two_Person, strategy_Two_Pc, 
+                      strategy_Three_Person, strategy_Three_Pc, 
+                      strategy_Four_Person, strategy_Four_Pc, 
+                      strategy_Five_Person, strategy_Five_Pc, 
+                      strategy_Six_Person, strategy_Six_Pc, 
+                      strategy_Seven_Person, strategy_Seven_Pc, 
+                      strategy_Eight_Person, strategy_Eight_Pc]
     
 
 def confirmCount_Text():
@@ -544,11 +824,52 @@ def confirmCount_Text():
     elif strategy_Eight_Pc() == 3:
         return PC_WIN
     
+    
+
+def isNull():
+
+    isfill = 0
+
+    for audi in range(len(triquiMatrix)):
+        for mercedez in range(len(triquiMatrix[0])):
+
+            if audi == 0 and mercedez == 0 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 0 and mercedez == 1 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 0 and mercedez == 2 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 1 and mercedez == 0 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 1 and mercedez == 1 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 1 and mercedez == 2 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 2 and mercedez == 0 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 2 and mercedez == 1 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+            elif audi == 2 and mercedez == 2 and (triquiMatrix[audi][mercedez] == "x" or triquiMatrix[audi][mercedez] == "o"):
+                isfill += 1
+
+    if confirmCount_Number() == 0 and isfill == 9:
+        return True
+    
+    else:
+        return False
+
 
 
 def turn(bool: bool, increase: int):
 
-    b = True
     while True:
 
         increase += 1
@@ -572,7 +893,10 @@ def turn(bool: bool, increase: int):
             bool = True
 
         if win == 3:
-            break 
+            break       
+
+        if isNull():
+            break
 
 
 
@@ -598,16 +922,20 @@ def triquiGame(bool: bool):
 
         turn(bool=False, increase=increase)
 
-
     else:
+
         print(f"Comienza Computadora! Turno [ {increase} ]")
 
         triquiLogicPc(triquiMatrix)
 
         turn(bool=True, increase=increase)
 
+    if isNull():
+        print("\nNadie Gana!")
 
-    print('\n¡Gana Persona!' if confirmCount_Text() == 'person' else '\n¡Gana Pc!')
+    else:
+        print('\n¡Gana Persona!' if confirmCount_Text() == "person" else '\n¡Gana Pc!')
+        triquiMatrix.clear()
             
 
         
