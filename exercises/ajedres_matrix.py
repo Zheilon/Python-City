@@ -135,7 +135,7 @@ def triquiLogicPerson(matrix):
 
 #*---------------------| PC ATTACK |---------------------*#
 
-def strategy_Pc_Attack_One(matrix):
+def strategy_Pc_Attack_One_G1(matrix):
 
     global attack
 
@@ -161,7 +161,7 @@ def strategy_Pc_Attack_One(matrix):
                 validateTwo = False
 
 
-def strategy_Pc_Attack_Two(matrix):
+def strategy_Pc_Attack_Two_G1(matrix):
 
     global attack
 
@@ -187,7 +187,7 @@ def strategy_Pc_Attack_Two(matrix):
                 validateTwo = False
 
 
-def strategy_Pc_Attack_Three(matrix):
+def strategy_Pc_Attack_Three_G1(matrix):
 
     global attack
 
@@ -213,7 +213,7 @@ def strategy_Pc_Attack_Three(matrix):
                 validateTwo = False
 
 
-def strategy_Pc_Attack_Four(matrix):
+def strategy_Pc_Attack_One_G2(matrix):
 
     global attack
 
@@ -239,7 +239,7 @@ def strategy_Pc_Attack_Four(matrix):
                 validateTwo = False
 
 
-def strategy_Pc_Attack_Five(matrix):
+def strategy_Pc_Attack_Two_G2(matrix):
 
     global attack
 
@@ -373,15 +373,15 @@ def triquiLogicPc(matrix):
 
     global attack
 
-    strategy_Pc_Attack_One(matrix)
+    strategy_Pc_Attack_One_G1(matrix)
 
-    strategy_Pc_Attack_Two(matrix)
+    strategy_Pc_Attack_Two_G1(matrix)
 
-    strategy_Pc_Attack_Three(matrix)
+    strategy_Pc_Attack_Three_G1(matrix)
 
-    strategy_Pc_Attack_Four(matrix)
+    strategy_Pc_Attack_One_G2(matrix)
 
-    strategy_Pc_Attack_Five(matrix)
+    strategy_Pc_Attack_Two_G2(matrix)
 
     strategy_Pc_Attack_Six(matrix)
 
@@ -935,7 +935,8 @@ def triquiGame(bool: bool):
 
     else:
         print('\n¡Gana Persona!' if confirmCount_Text() == "person" else '\n¡Gana Pc!')
-        triquiMatrix.clear()
+
+    triquiMatrix.clear()
             
 
         
