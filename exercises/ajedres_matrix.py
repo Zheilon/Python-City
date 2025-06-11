@@ -89,6 +89,7 @@ def createTriqui():
 
         for x in range(3):
             intro.append(" ")
+            
         triquiMatrix.append(intro)
 
 
@@ -99,17 +100,13 @@ def triquiLogicPerson(matrix):
     found = False
 
     while b:
-
         try:
-
             row = int(input("Ingresa la Posición [FILA]: "))
             column = int(input("Ingresa la posición [COLUMNA]: "))
 
             for audi in range(len(matrix)):
                 for toyota in range(len(matrix[0])):
-
                     if row <= len(matrix) and column <= len(matrix[0]):
-
                         if audi == row - 1 and toyota == column - 1 and matrix[audi][toyota] == " ":
                             matrix[audi][toyota] = "o"
                             b = False
@@ -153,10 +150,10 @@ def strategy_Pc_Attack_One_G1(matrix):
 
     for z in range(len(matrix)):
         for m in range(len(matrix[0])):
-            
             if z == 1 and m == 0 and matrix[z][m] == " " and validateOne and validateTwo:
                 matrix[z][m] = "x"
                 attack = False
+                
                 validateOne = False
                 validateTwo = False
 
@@ -179,7 +176,6 @@ def strategy_Pc_Attack_Two_G1(matrix):
 
     for z in range(len(matrix)):
         for m in range(len(matrix[0])):
-            
             if z == 1 and m == 1 and matrix[z][m] == " " and validateOne and validateTwo:
                 matrix[z][m] = "x"
                 attack = False
@@ -764,15 +760,6 @@ def confirmCount_Number():
     else:
         return 0
     
-    listStrategies = [strategy_One_Person, strategy_One_Pc, 
-                      strategy_Two_Person, strategy_Two_Pc, 
-                      strategy_Three_Person, strategy_Three_Pc, 
-                      strategy_Four_Person, strategy_Four_Pc, 
-                      strategy_Five_Person, strategy_Five_Pc, 
-                      strategy_Six_Person, strategy_Six_Pc, 
-                      strategy_Seven_Person, strategy_Seven_Pc, 
-                      strategy_Eight_Person, strategy_Eight_Pc]
-    
 
 def confirmCount_Text():
 
@@ -868,7 +855,7 @@ def isNull():
 
 
 
-def turn(bool: bool, increase: int):
+def turn(bool: bool, increase: int, name: str):
 
     while True:
 
@@ -878,7 +865,7 @@ def turn(bool: bool, increase: int):
 
         if bool and win != 3:
 
-            print(f"\nTurno [ {increase} ] Persona!")
+            print(f"\nTurno [ {increase} ] {name}!")
 
             triquiLogicPerson(triquiMatrix)
 
@@ -903,7 +890,11 @@ def turn(bool: bool, increase: int):
 def triquiGame(bool: bool):
 
     increase = 1
+    
+    os.system('cls')
+    name = str(input("Ingresa Nombre: "))
 
+    os.system('cls')
     print("Sorteo de Turno Inicial: ")
     print("Cara -> 1 / Cruz -> 0")
 
@@ -916,11 +907,11 @@ def triquiGame(bool: bool):
 
     if numberS == person and bool:
 
-        print(f"Comienza Persona! Turno [ {increase} ]")
+        print(f"Comienza {name}! Turno [ {increase} ]")
 
         triquiLogicPerson(triquiMatrix)
 
-        turn(bool=False, increase=increase)
+        turn(bool=False, increase=increase, name=name)
 
     else:
 
@@ -928,13 +919,13 @@ def triquiGame(bool: bool):
 
         triquiLogicPc(triquiMatrix)
 
-        turn(bool=True, increase=increase)
+        turn(bool=True, increase=increase, name=name)
 
     if isNull():
         print("\nNadie Gana!")
 
     else:
-        print('\n¡Gana Persona!' if confirmCount_Text() == "person" else '\n¡Gana Pc!')
+        print(f'\n¡Gana {name}!' if confirmCount_Text() == "person" else f'\n¡Gana Pc!\nMueve los dedos más rápido {name}!')
 
     triquiMatrix.clear()
             
